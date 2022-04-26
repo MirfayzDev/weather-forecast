@@ -1,0 +1,54 @@
+.box {
+    display: flex;
+    background-image: linear-gradient(to right bottom, rgba(114, 237, 242, 0.6), rgba(81, 81, 229, 0.6)),
+    url('./Assets/mountain.jpg');
+    background-size: cover;
+    height: 30rem;
+    width: 30%;
+    border-radius: var(--main-border-radius);
+    padding: 1.5rem;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.day, .temp {
+    font-weight: 700;
+    font-size: 3.2rem;
+}
+
+.date, .month {
+    font-size: 1.8rem;
+}
+
+.dFlex {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 2.4rem;
+    fill: white;
+    font-weight: 300;
+}
+
+.location {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-left: 0.5rem;
+}
+
+.condition {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+@media (max-width: 34em) {
+    .box {
+        width: 100%;
+        height: 25rem;
+    }
+}

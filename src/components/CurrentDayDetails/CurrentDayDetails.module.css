@@ -1,0 +1,19 @@
+.container {
+    margin: 1.5rem;
+}
+
+.dFlex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dFlex p {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.dFlex span {
+    font-size: 1.8rem;
+    font-weight: 700;
+}

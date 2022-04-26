@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.dFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70%;
+}
+
+@media (max-width: 34em) {
+    .container {
+        flex-direction: column;
+    }
+
+    .dFlex {
+        width: 100%;
+    }
+}
