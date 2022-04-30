@@ -18,17 +18,17 @@ function Page() {
         <Fragment>
             <Header/>
             <div className={styles.container}>
-                    {
-                        isLoading ?
-                            (<Loader/>) :
-                            data.currentDayData && isEntered?
-                                (<Forecast data={data}/>) :
-                                (<Form setIsEntered={setIsEntered} submitRequest={submitRequest}/>)
-                    }
+                {
+                    isLoading ?
+                        (<Loader/>) :
+                        data.currentDayData && isEntered ?
+                            (<Forecast data={data}/>) :
+                            (<Form setIsEntered={setIsEntered} submitRequest={submitRequest}/>)
+                }
             </div>
             <div className={styles.error}>
                 {error && !isLoading && <Error message={error}/>}
-                {!error && isEntered && <BackButton setIsEntered={setIsEntered}/>}
+                {!error && !isLoading && isEntered && <BackButton setIsEntered={setIsEntered}/>}
             </div>
         </Fragment>
     )
