@@ -2,16 +2,14 @@ import {useState} from "react";
 
 import styles from "./Form.module.css";
 
-function Form({submitRequest}) {
+function Form({submitRequest, setIsEntered}) {
     const [locationValue, setLocationValue] = useState('')
 
     const onSubmitHandler =  event => {
         event.preventDefault()
-        if (!locationValue || locationValue.trim().length <= 0) {
-            return
-        } else {
-            submitRequest(locationValue)
-        }
+        if (!locationValue || locationValue.trim().length <= 0) return
+        submitRequest(locationValue)
+        setIsEntered(true)
     }
 
     const onChangeHandler = event => {

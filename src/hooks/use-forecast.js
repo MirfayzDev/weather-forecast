@@ -5,46 +5,31 @@ const useForecast = () => {
     const [error, setError] = useState(null)
     const [data, setData] = useState('')
 
-    const myKey = 'b0fbc53d9b5bf83339f92ed398c62519'
-
     const sendRequest = useCallback(async (location) => {
+        setIsLoading(true)
         try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${location}&cnt=6&appid=${myKey}&units=metric`)
-            if (!response.ok) throw new Error('Something went wrong!')
-            setIsLoading(true)
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${location}&cnt=6&appid=${process.env.React_App_Weather_Api}&units=metric`)
+            if (!response.ok) throw new Error('There is no such city!')
             const data = await response.json()
-            if (!data || data.length === 0) {
-                setError('There is no such location!')
-                return
-            }
+            setIsLoading(false)
+            setError(null)
             return data
         } catch (error) {
-            setError(error)
+            setError(error.message)
+            setIsLoading(false)
         }
     }, [])
 
-    const getCurrentDayData = async (location) => {
-        const data = await sendRequest(location)
-        return data
-    }
-
-    const getUpcomingDays = async (location) => {
-        const data = await sendRequest(location)
-        const upcomingDaysData = data.list.slice(1)
-        return upcomingDaysData
-    }
-
     const gatherData = async (location) => {
-        const currentDayData = await getCurrentDayData(location)
-        const upcomingDaysData = await getUpcomingDays(location)
+        const data = await sendRequest(location)
+        const currentDayData = data
+        const upcomingDaysData = data?.list.slice(1)
         setData({upcomingDaysData, currentDayData})
         return {currentDayData, upcomingDaysData}
     }
 
     const submitRequest = async (location) => {
         await gatherData(location)
-        setError(null)
-        setIsLoading(false)
     }
 
     return {

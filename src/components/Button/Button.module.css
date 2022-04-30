@@ -1,0 +1,10 @@
+.btn {
+    background-image: var(--gradient);
+    border: none;
+    border-radius: var(--main-border-radius);
+    color: inherit;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-size: 1.6rem;
+    cursor: pointer;
+}

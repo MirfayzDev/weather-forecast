@@ -4,13 +4,13 @@ import UpcomingDaysForecast from "../UpcomingDaysForecast/UpcomingDaysForecast";
 
 import styles from './Forecast.module.css'
 
-function Forecast({data}) {
+function Forecast({data: {currentDayData, upcomingDaysData}}) {
     return (
         <div className={styles.container}>
-            <CurrentDay data={data.currentDayData}/>
+            <CurrentDay data={currentDayData}/>
             <div className={styles.dFlex}>
-                <CurrentDayDetails data={data.currentDayData}/>
-                <UpcomingDaysForecast data={data.upcomingDaysData}/>
+                <CurrentDayDetails data={currentDayData}/>
+                <UpcomingDaysForecast data={upcomingDaysData}/>
             </div>
         </div>
     )

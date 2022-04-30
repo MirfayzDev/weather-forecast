@@ -10,3 +10,9 @@
     color: var(--main-text-color);
     min-height: 30rem;
 }
+
+.error {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
