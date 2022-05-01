@@ -1,6 +1,6 @@
 function Error({message}) {
     return (
-        <p>
+        <p style={{color: "red"}}>
             {message}
         </p>
     )

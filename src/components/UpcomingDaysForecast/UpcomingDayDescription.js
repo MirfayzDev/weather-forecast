@@ -7,8 +7,6 @@ let day;
 function UpcomingDayDescription({data, index}) {
     const {main: {temp}, weather} = data
 
-    // console.log(date.getDay())
-
     if (date.getDay() >= 6) {
         day = 0
     } else {

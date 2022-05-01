@@ -14,7 +14,6 @@ const useForecast = () => {
             if (!response.ok) throw new Error('There is no such city!')
             const data = await response.json()
             setIsLoading(false)
-            setError(null)
             return data
         } catch (error) {
             setError(error.message)
