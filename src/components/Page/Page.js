@@ -6,13 +6,21 @@ import useForecast from "../../hooks/use-forecast";
 import Forecast from "../Forecast/Forecast";
 import Error from "../Error/Error";
 import Loader from "../Loader/Loader";
-import BackButton from "../Button/BackButton";
+import Button from "../../ui/Button";
 
 import styles from './Page.module.css'
 
 function Page() {
     const {submitRequest, isLoading, error, data} = useForecast()
     const [isEntered, setIsEntered] = useState(false)
+
+    const onClickHandlerBack = () => {
+        setIsEntered(false)
+    }
+
+    const onClickHandlerSearch = () => {
+        setIsEntered(true)
+    }
 
     return (
         <Fragment>
@@ -23,12 +31,14 @@ function Page() {
                         (<Loader/>) :
                         data.currentDayData && isEntered ?
                             (<Forecast data={data}/>) :
-                            (<Form setIsEntered={setIsEntered} submitRequest={submitRequest}/>)
+                            (<Form onClickHandler={onClickHandlerSearch} submitRequest={submitRequest}/>)
                 }
             </div>
             <div className={styles.error}>
-                {error && !isLoading && <Error message={error}/>}
-                {!error && !isLoading && isEntered && <BackButton setIsEntered={setIsEntered}/>}
+                {error && <Error message={error}/>}
+                {!error && !isLoading && isEntered && <Button onClickHandler={onClickHandlerBack}>
+                    Back to Search
+                </Button>}
             </div>
         </Fragment>
     )

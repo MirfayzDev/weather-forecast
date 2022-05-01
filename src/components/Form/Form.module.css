@@ -19,16 +19,3 @@
 input::placeholder {
     font-size: 1.6rem;
 }
-
-.btn {
-    background-image: var(--gradient);
-    border: none;
-    border-radius: var(--main-border-radius);
-    color: inherit;
-    padding: 1rem;
-    font-weight: 700;
-    width: 100%;
-    font-size: 1.6rem;
-    text-transform: uppercase;
-    cursor: pointer;
-}

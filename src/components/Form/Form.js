@@ -1,15 +1,16 @@
 import {useState} from "react";
+import Button from "../../ui/Button";
 
 import styles from "./Form.module.css";
 
-function Form({submitRequest, setIsEntered}) {
+function Form({submitRequest, onClickHandler}) {
     const [locationValue, setLocationValue] = useState('')
 
     const onSubmitHandler =  event => {
         event.preventDefault()
         if (!locationValue || locationValue.trim().length <= 0) return
         submitRequest(locationValue)
-        setIsEntered(true)
+        onClickHandler()
     }
 
     const onChangeHandler = event => {
@@ -24,7 +25,7 @@ function Form({submitRequest, setIsEntered}) {
                    className={styles.input}
                    required
                    placeholder={'Search for location'}/>
-            <button type={"submit"} className={styles.btn}>Search</button>
+            <Button>Search</Button>
         </form>
     )
 }

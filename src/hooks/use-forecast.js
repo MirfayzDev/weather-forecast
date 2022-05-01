@@ -7,6 +7,8 @@ const useForecast = () => {
 
     const sendRequest = useCallback(async (location) => {
         setIsLoading(true)
+        setError(null)
+
         try {
             const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${location}&cnt=6&appid=${process.env.React_App_Weather_Api}&units=metric`)
             if (!response.ok) throw new Error('There is no such city!')
